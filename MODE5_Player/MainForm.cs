@@ -22,7 +22,6 @@ namespace MODE5_Player
             InitializeComponent();
 
             rdfSendTimer = new System.Windows.Forms.Timer();
-            rdfSendTimer.Interval = RDF_SEND_INTERVAL_MS;
             rdfSendTimer.Tick += RdfSendTimer_Tick;
         }
 
@@ -75,6 +74,25 @@ namespace MODE5_Player
         #endregion
 
         #region Handlers
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+            // autopopulate COM port and Baud rate dropdowns
+            UpdateRS232Options();
+            cboxBaudrate.SelectedIndex = 1; // manually setting to 19200 while testing
+            if (cboxComport.Items.Count > 0)
+            {
+                cboxComport.SelectedIndex = 0;
+            }
+            if (cboxSendrate.Items.Count > 0)
+            {
+                cboxSendrate.SelectedIndex = 0;
+            }
+
+            // focus the Connect button so user can just hit ENTER to right after startup
+            ActiveControl = btnConnect;
+
+        }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
@@ -154,22 +172,6 @@ namespace MODE5_Player
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-            // autopopulate COM port and Baud rate dropdowns
-            UpdateRS232Options();
-            cboxBaudrate.SelectedIndex = 1; // manually setting to 19200 while testing
-            if (cboxComport.Items.Count > 0)
-            {
-                cboxComport.SelectedIndex = 0;
-            }
-
-            // focus the Connect button so user can just hit ENTER to right after startup
-            ActiveControl = btnConnect;
-
-        }
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             // repopulate COM port and Baud rate dropdowns
@@ -231,7 +233,9 @@ namespace MODE5_Player
                     // Start sending from the beginning.
                     rdfSendIndex = 0;
 
-                    // Start the 20 Hz transmission timer.
+                    // Start the transmission timer.
+                    double sendRate = Convert.ToDouble(cboxSendrate.SelectedItem);
+                    rdfSendTimer.Interval = (int)(1000.0 / sendRate);
                     rdfSendTimer.Start();
 
                     int totalPackets = rdfFileData.Length / RDF_PACKET_SIZE;
