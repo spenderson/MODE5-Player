@@ -66,6 +66,8 @@ namespace MODE5_Player
 
         private byte[] rdfFileData;
         private int rdfSendIndex = 0;
+
+
         private System.Windows.Forms.Timer rdfSendTimer;
         private const int RDF_PACKET_SIZE = 24;
         private const int RDF_SEND_INTERVAL_MS = 50;

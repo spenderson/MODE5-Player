@@ -40,6 +40,9 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSendRdf = new System.Windows.Forms.Button();
             this.cboxSendrate = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -130,7 +133,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(545, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(556, 28);
             this.menuStrip1.TabIndex = 43;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -143,9 +146,9 @@
             // 
             // btnSendRdf
             // 
-            this.btnSendRdf.Location = new System.Drawing.Point(381, 54);
+            this.btnSendRdf.Location = new System.Drawing.Point(429, 98);
             this.btnSendRdf.Name = "btnSendRdf";
-            this.btnSendRdf.Size = new System.Drawing.Size(75, 23);
+            this.btnSendRdf.Size = new System.Drawing.Size(75, 28);
             this.btnSendRdf.TabIndex = 54;
             this.btnSendRdf.Text = "Browse";
             this.btnSendRdf.UseVisualStyleBackColor = true;
@@ -154,16 +157,46 @@
             // cboxSendrate
             // 
             this.cboxSendrate.FormattingEnabled = true;
-            this.cboxSendrate.Location = new System.Drawing.Point(381, 109);
+            this.cboxSendrate.Location = new System.Drawing.Point(429, 66);
             this.cboxSendrate.Name = "cboxSendrate";
-            this.cboxSendrate.Size = new System.Drawing.Size(121, 24);
+            this.cboxSendrate.Size = new System.Drawing.Size(62, 24);
             this.cboxSendrate.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(355, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Send rate:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(355, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.TabIndex = 57;
+            this.label2.Text = "File select:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(497, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 16);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Hz";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 224);
+            this.ClientSize = new System.Drawing.Size(556, 224);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cboxSendrate);
             this.Controls.Add(this.btnSendRdf);
             this.Controls.Add(this.groupBox4);
@@ -198,6 +231,9 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button btnSendRdf;
         private System.Windows.Forms.ComboBox cboxSendrate;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
